@@ -21,6 +21,10 @@ app.add_middleware(
 # Initialize Pinecone service
 pinecone_service = PineconeService()
 
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
 @app.post("/search")
 async def search(search_query: SearchQuery):
     """
